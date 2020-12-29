@@ -1,14 +1,12 @@
-const roll = require('./roll');
 const create = require('./create');
 const add = require('./add');
 const remove = require('./remove');
 const show = require('./show');
 const mysql = require('mysql'); 
 require('dotenv').config();
-const prefix = '!';
+const prefix = '$';
 
 const commands = {
-  roll,
   create,
   add,
   remove,
@@ -19,7 +17,7 @@ var db = mysql.createConnection({
   host     : 'localhost',
   port     : '3306',
   user     : 'root',
-  password : process.env.DB_PASSWORD,
+  password : '',
   database : 'DSA'
 });
 

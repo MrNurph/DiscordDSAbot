@@ -3,7 +3,7 @@ module.exports = async (message, args, db) => {
   db.query('SELECT * FROM dsageld WHERE userName = ' + '"' + message.author.tag + '"', function(err, row) { //the row is the user's data
     if(row.length < 1) {
       // eslint-disable-next-line no-undef
-      db.query('INSERT INTO `dsageld` (`userName`, `GD`,`ST`, `BH`, `EK`, `LP`) VALUES (' + '"' + message.author.tag + '"' + ', 0, 0, 0, 0, 0)');
+      db.query('INSERT INTO `dsageld` (`userName`, `Gold`,`Silber`, `Kupfer`, `LeP`, `AsP`) VALUES (' + '"' + message.author.tag + '"' + ', 0, 0, 0, 0, 0)');
       message.reply('Dein Eintrag wurde registriert.');
     } else if(row.length >= 1) {
       message.reply('Dein Eintrag existiert bereits.');
