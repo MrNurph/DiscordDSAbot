@@ -61,4 +61,7 @@ module.exports = async (message, args, db) => {
       }
     });
   }
+  else {
+    message.reply(' dafür existiert kein Datenbankeintrag. Gültige Eingaben sind LeP, Asp, Gold, Silber, Kupfer und Verfall.')
+  }
 };

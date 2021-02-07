@@ -42,9 +42,12 @@ module.exports = async (message, args, db) => {
         db.query('UPDATE dsageld SET' + '`' + args[1] + '`' + ' = (' + n + ') WHERE userName = ' + '"' + message.author.tag + '"');
         // eslint-disable-next-line no-undef
         db.query('SELECT * FROM dsageld WHERE userName = ' + '"' + message.author.tag + '"', function(err, row) { //the row is the user's data
-          message.reply(args[0] + ' ' + args[1] + ' **hinzugefügt**, du hast ' + row[0].LeP + ' <:globe_hp:793443892367982603>, ' + row[0].AsP + '<:globe_mana:793443931572011039>, ' + row[0].Gold + ' <:2992_Terraria_GoldCoin:793443084368216075>, ' + row[0].Silber + ' <:2436_Terraria_SilverCoin:793443120951590942>, ' + row[0].Kupfer + ' <:8717_Terraria_CopperCoin:793442344178548737>, ' + row[0].Verfall + ':wilted_rose:.');
+          message.reply(args[0] + ' ' + args[1] + ' **hinzugefügt**, du hast ' + row[0].LeP + ' <:globe_hp:793443892367982603>, ' + row[0].AsP + ' <:globe_mana:793443931572011039>, ' + row[0].Gold + ' <:2992_Terraria_GoldCoin:793443084368216075>, ' + row[0].Silber + ' <:2436_Terraria_SilverCoin:793443120951590942>, ' + row[0].Kupfer + ' <:8717_Terraria_CopperCoin:793442344178548737>, ' + row[0].Verfall + ':wilted_rose:.');
         });
       }
     });
+  }
+  else {
+    message.reply(' dafür existiert kein Datenbankeintrag. Gültige Eingaben sind LeP, Asp, Gold, Silber, Kupfer und Verfall.')
   }
 };
