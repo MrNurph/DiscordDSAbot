@@ -2,7 +2,8 @@ const create = require('./create');
 const add = require('./add');
 const remove = require('./remove');
 const show = require('./show');
-const mysql = require('mysql'); 
+const help = require('./help');
+const mysql = require('mysql');
 require('dotenv').config();
 const prefix = '$';
 const prefix2 = '§';
@@ -11,7 +12,8 @@ const commands = {
   create,
   add,
   remove,
-  show
+  show,
+  help
 };
 
 var db = mysql.createConnection({
@@ -41,6 +43,8 @@ module.exports = async (message) =>{
 
   if(Object.keys(commands).includes(command)) {
     commands[command](message, args, db);
+  } else {
+    message.channel.send('Unbekannter Befehl. Gib **$help** für eine Liste gültiger Eingaben ein.')
   }
   
 };
