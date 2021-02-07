@@ -5,6 +5,7 @@ const show = require('./show');
 const mysql = require('mysql'); 
 require('dotenv').config();
 const prefix = '$';
+const prefix2 = '§';
 
 const commands = {
   create,
@@ -30,7 +31,10 @@ db.connect((err) => {
 
 module.exports = async (message) =>{
   //command manager
-  if (!message.content.startsWith(prefix) || message.author.bot) return; 
+  if(message.content.startsWith(prefix2)) {
+    message.content = '$' + message.content.substring(1);
+  }
+  if (!message.content.startsWith(prefix) || message.author.bot) return;
   
   const args = message.content.slice(prefix.length).split(' ');
   const command = args.shift().toLowerCase();
