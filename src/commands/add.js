@@ -10,7 +10,7 @@ module.exports = async (message, args, db) => {
                 message.reply('Es gab einen Fehler.');
             }
             if (typeof (row) == 'undefined') { //if the user is not in the database
-                message.reply('Es existiert kein Eintrag für dich füge ihn mit !create hinzu.');
+                message.reply('Es existiert kein Eintrag für dich. Füge ihn mit **$create** hinzu.');
             } else { //if the user is in the database
                 if (args[1].toUpperCase().startsWith('G')) {
                     n = parseInt(row[0].Geld, 10) + parseInt(args[0], 10) * 10000;
